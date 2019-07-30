@@ -1,0 +1,75 @@
+.mainDiv{
+  min-height:100%;
+  overflow: hidden;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.signInForm {
+
+  margin : 2em auto;
+  padding:1em;
+  width: 600px;
+  border: 2px solid black;
+  color : gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.formField {
+  color:gray;
+  padding :1em 0;
+  text-align: left;
+}
+.signInForm .fields input {
+  border: 1px solid black;
+  box-sizing: border-box;
+  color:inherit;
+  padding: 0.2em 0.5em;
+  margin-top:0.5em;
+  width:100%;
+  line-height:34px;
+  font-size: 1em;
+}
+.progress {
+  text-align: left;
+}
+.strenghBar{
+  margin:0.5em 0;
+  display: flex;
+  flex-direction:row;
+}
+.strenghBar > div {
+  flex:1;
+  height:10px;
+  transition: background-color 0.2s ease-out;
+}
+.strenghBar > div:not(:first-child):not(:last-child){
+  margin:0 0.2em;
+}
+.signInForm .button {
+  margin : 50px 0 0 0;
+  width:100%;
+  cursor:pointer;
+  font-weight:600;
+  font-size: 1em;
+  background-color: black;
+  color: white;
+  height:44px;
+  line-height:40px;
+}
+@media screen and (max-width: 600px) {
+  .mainDiv{
+    overflow: hidden;
+    height:100%;
+  }
+  .signInForm {
+    overflow: auto;
+    margin:0;
+    max-height:100%;
+    height:100%;
+    width:100%;
+    border: none;
+    box-sizing: border-box;
+  }
+}
