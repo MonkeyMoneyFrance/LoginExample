@@ -49,9 +49,18 @@ describe("SignIn", () => {
     expect(progressBar.find('span').text()).toEqual('Strengh : Strong')
   })
   it("trigger submit", () => {
+    jest.spyOn(window, 'alert').mockImplementation(() => {});
     const wrapper = mount(<SignIn />);
+    let emailForm = wrapper.find(FormField).at(0)
     let passForm = wrapper.find(FormField).at(1)
-    wrapper.find('button').simulate('click');
 
+    wrapper.find('form').simulate('submit');
+    expect(wrapper.find('button').text()).toEqual('Submit')
+
+    emailForm.find('input').simulate('change', {target: {value: "toto@test.com"}});
+    passForm.find('input').simulate('change', {target: {value: "abcHJU67&;"}});
+
+    wrapper.find('form').simulate('submit');
+    expect(wrapper.find('button').text()).toEqual('Submitted !')
   })
 });

@@ -1,0 +1,117 @@
+$break-small : 600px;
+$colors : (0:red,1:orange,2:green);
+@function color($key) {
+  @if map-has-key($colors,$key) {
+    @return map-get($colors,$key)
+  }
+}
+.mainDiv{
+  min-height:100%;
+  overflow: hidden;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.signInForm {
+  margin : 2em auto;
+  padding:1em;
+  width: 600px;
+  border: 2px solid black;
+  color : gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .formField {
+    color:gray;
+    padding :1em 0;
+    text-align: left;
+  }
+  .fields input {
+    border: 1px solid black;
+    box-sizing: border-box;
+    color:inherit;
+    padding: 0.2em 0.5em;
+    margin-top:0.5em;
+    width:100%;
+    line-height:34px;
+    font-size: 1em;
+    outline: none;
+    &:focus{
+      border: 1px solid blue;
+      box-shadow: 0 0 2px blue;
+    }
+    &.error{
+      border: 1px solid red;
+      box-shadow: 0 0 2px red;
+    }
+    &:disabled {
+      background-color: #F5F5F5;
+    }
+  }
+  .progress {
+    text-align: left;
+  }
+  .strenghBar{
+    margin:0.5em 0;
+    display: flex;
+    flex-direction:row;
+  }
+  .strenghBar > div {
+    flex:1;
+    height:10px;
+    background-color:grey;
+    transition: background-color 0.2s ease-out;
+    @for $i from 0 through 2 {
+      &.active.score-#{$i} {
+        background-color: color($i);
+      }
+    }
+    &:not(:first-child):not(:last-child){
+      margin:0 0.2em;
+    }
+
+  }
+  .button {
+    margin : 50px 0 0 0;
+    width:100%;
+    cursor:pointer;
+    font-weight:600;
+    font-size: 1em;
+    color: black;
+    height:44px;
+    line-height:40px;
+    background-color: transparent;
+    border: 2px solid black;
+    transition: all 0.2s ease-in;
+    &:focus{
+      box-shadow: 0 0 2px blue;
+    }
+    &:hover, &:focus{
+      color: white;
+      background-color: black;
+      border: 2px solid black;
+    }
+    &:disabled{
+      color: gray;
+      background-color: white;
+      border: 2px solid gray;
+    }
+  }
+}
+
+@media screen and (max-width: $break-small) {
+  .mainDiv{
+    overflow: hidden;
+    height:100%;
+  }
+  .signInForm {
+    overflow: auto;
+    margin:0;
+    max-height:100%;
+    height:100%;
+    width:100%;
+    border: none;
+    box-sizing: border-box;
+  }
+}

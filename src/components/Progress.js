@@ -1,18 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+const labelArray = ['Too Weak','Acceptable','Strong'] // must be the same size of colors in scss
 
-export default function Progress(props){
-  const score = props.score
-  const colorArray = ['red','orange','green']
-  const labelArray = ['Too Weak','Acceptable','Strong']
-
+function Progress(props){
+  const {score} = props
   return (
     <div className={'progress'}>
       <div className={'strenghBar'}>
-        {colorArray.map((color,i) =>
-          <div key={i} style={{backgroundColor:score-1 >= i ? colorArray[score-1]: 'grey'}} ></div>
+        {labelArray.map((color,i) =>
+          <div
+            key={i}
+            className={`score-${score-1} ${score-1 >= i ? 'active' : ''}`} // define active and score of each bar
+            ></div>
         )}
       </div>
       <span>Strengh : {labelArray[score-1] || 'Invalid'}</span>
     </div>
   )
 }
+Progress.propTypes = {
+  score : PropTypes.number,
+};
+export default Progress;
