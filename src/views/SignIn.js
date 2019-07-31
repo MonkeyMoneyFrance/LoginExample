@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
 import FormField from '../components/FormField'
 import Progress from '../components/Progress'
-import zxcvbn from 'zxcvbn' // heavy libray, API call would be prefered in prod mode ? 
+import zxcvbn from 'zxcvbn' // heavy libray, API call would be prefered in prod mode ?
 import '../styles/signIn.scss'
 
 const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
@@ -46,7 +46,7 @@ export default function SignIn(){
           />
         </div>
         <button
-          disabled = {buttonText != 'Submit'} // prevent the click action
+          disabled = {buttonText !== 'Submit'} // prevent the click action
           aria-label={'Submit'}
           type={'submit'} // clicking the button will submit the form
           className={'button'}
