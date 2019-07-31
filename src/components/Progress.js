@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-const labelArray = ['Too Weak','Acceptable','Strong'] // must be the same size of colors in scss
+const labelArray = ['Too Weak','Acceptable','Strong'] // must be the same size as of colors array in scss
 
 function Progress(props){
   const {score} = props
